@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>Products</servlet-name>
+        <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Products</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Product</servlet-name>
+        <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Product</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Add</servlet-name>
+        <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Add</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Delete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Products</servlet-name>
+        <url-pattern>/Products</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Product</servlet-name>
+        <url-pattern>/Product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Add</servlet-name>
+        <url-pattern>/Add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/Delete</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
