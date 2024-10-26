@@ -7,25 +7,27 @@ package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.tags;
 import java.io.*;
 import jakarta.servlet.jsp.*; 
 import jakarta.servlet.jsp.tagext.*; 
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
 
 /**
  *
  * @author josep
  */
 public class ProductsTag extends TagSupport {
+    private String path;
+    
+    public void setPath(String relativeFilePath) {
+        this.path = relativeFilePath;
+    }
+    
     @Override
     public int doStartTag() throws JspException {
-        try { 
-            JspWriter out = pageContext.getOut();
-            if (ProductsServletContextListner.generateRealFilePath("/WEB-INF/data/products.txt").equals("")) {
-                out.print("Servlet Context not initialized");
-            }
-            else {
-                out.print(ProductsServletContextListner.generateRealFilePath("/WEB-INF/data/products.txt"));
-            }
+        try {
+            String realDataPath = ProductsServletContextListner.generateRealFilePath(path);
+            ProductIO.init(realDataPath);
         }
-        catch (IOException ioe) { 
-            System.out.println(ioe); 
+        catch (Exception e) { 
+            System.out.println(e); 
         }
         return SKIP_BODY;
     }

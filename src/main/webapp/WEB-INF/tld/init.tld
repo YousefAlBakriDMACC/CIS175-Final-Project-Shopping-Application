@@ -28,6 +28,16 @@
     <tag>
         <name>products</name>
         <tag-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.tags.ProductsTag</tag-class>
-        <info></info>
+        <body-content>empty</body-content>
+        <info>Initializes the ProductIO class for data retrival</info>
+        <attribute>
+            <name>path</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
     </tag>
+    
+    <listener>
+        <listener-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.tags.ProductsServletContextListner</listener-class>
+    </listener>
 </taglib>
