@@ -15,7 +15,7 @@
 
     <h1>Product Details</h1>
 
-        <form action="add.java" method="post">
+        <form action="product.jsp" method="post">
         <input type="hidden" name="productId" value="${product.productId}" />
 
         
