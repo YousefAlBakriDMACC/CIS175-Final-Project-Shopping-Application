@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Music Store - Product Details</title>
+    <link rel="stylesheet" href="includes/styleMain.css">
 </head>
 <body>
 
