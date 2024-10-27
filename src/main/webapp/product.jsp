@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="includes/styleMain.css">
 </head>
 <body>
-
+request. get attribute product
     <h1>Product Details</h1>
 
-        <form action="product.jsp" method="post">
+        <form action="Add.java" method="post">
         <input type="hidden" name="productId" value="${product.productId}" />
 
         
@@ -43,4 +43,3 @@
 
 </body>
 </html>
-
