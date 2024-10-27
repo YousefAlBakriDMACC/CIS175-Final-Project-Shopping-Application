@@ -18,16 +18,16 @@
     <link rel="stylesheet" href="includes/styleMain.css">
 </head>
 <body>
-request. get attribute product
     <h1>Product Details</h1>
 <%-- request. get attribute product --%>
+        <init:products path="/WEB-INF/data/products.txt"/>
 
-    <form action="${pageContext.request.contextPath}/insertProduct" method="post">
-        <input type="hidden" name="productId" value="${product.productId}" />
+    <form action="Add" method="post">
+        <input type="hidden" name="productId" value="${product.productID}" />
 
         
         <label for="code">Code:</label>
-        <input type="text" id="code" name="code" value="${product.code}" required /><br><br>
+        <input type="text" id="code" name="code" value="${product}" required /><br><br>
 
       
         <label for="description">Description:</label>
@@ -38,7 +38,7 @@ request. get attribute product
         <input type="text" id="price" name="price" value="${product.price}" required /><br><br>
 
 
-        <input type="submit" value="Update Product" />
+        <input type="submit" value="save Product" />
         
         
     </form>

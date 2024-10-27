@@ -68,23 +68,14 @@ public class Delete extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        String productCode = request.getParameter("productCode");
-
-        if ("delete".equals(action) && productCode != null) {
-            ProductIO.deleteProduct(productCode);  // Assuming deleteProduct is a method in ProductIO
-        }
-
-        response.sendRedirect("product.jsp"); // Redirect back to the JSP after action
-    }
+  
 
     /**
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description
      */
-    @Override
+    
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>

@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
 
 /**
  *
@@ -33,31 +35,19 @@ public class Add extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Retrieve form data
-        String productId = request.getParameter("productId");
+       
+       //  productId = Long.parseLong(request.getParameter("productId"));
         String code = request.getParameter("code");
         String description = request.getParameter("description");
-        String price = request.getParameter("price");
-
-        // Define the path for products.txt
-        String filePath = getServletContext().getRealPath("/") + "products.txt";
-
-        // Write the product data to products.txt
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            writer.write("Product ID: " + productId);
-            writer.newLine();
-            writer.write("Code: " + code);
-            writer.newLine();
-            writer.write("Description: " + description);
-            writer.newLine();
-            writer.write("Price: " + price);
-            writer.newLine();
-            writer.write("---------------");
-            writer.newLine();
-        } catch (IOException e) {
-            // Handle I/O exceptions
-            e.printStackTrace();
-        }
-
+        double price = Double.parseDouble(request.getParameter("price"));
+        
+        Product product = new Product();
+        //product.setId(productId);
+        product.setCode(code);
+        product.setDescription(description);
+        product.setPrice(price);
+        ProductIO.insertProduct(product);
+        
         // Set response type and redirect to a confirmation page or another servlet
         response.setContentType("text/html");
         response.sendRedirect("products.jsp");
