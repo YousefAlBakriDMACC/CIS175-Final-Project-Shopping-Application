@@ -15,6 +15,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author josep
  */
+
+
 public class Delete extends HttpServlet {
 
     /**
@@ -26,6 +28,33 @@ public class Delete extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
+    @Override
+    public void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        String url = "";
+        
+
+        getServletContext().getRequestDispatcher(url)
+                .forward(request, response);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        String url = "";
+        
+        
+        getServletContext().getRequestDispatcher(url)
+                .forward(request, response);
+    }
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
