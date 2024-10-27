@@ -17,7 +17,7 @@
     </head>
     <body>
         <%@ include file="includes/header.html" %>
-        <h2>Product Maintenance</h2>
+        <h3>Product Maintenance</h3>
         <br/>
         <a href="products.jsp">View Products</a>
         <br/>

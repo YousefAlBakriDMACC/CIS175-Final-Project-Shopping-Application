@@ -20,7 +20,7 @@
     <body>
         <init:products path="/WEB-INF/data/products.txt"/>
         <%@ include file="includes/header.html" %>
-        <h1>Products</h1>
+        <h2>Products</h2>
         <table id="products">
             <tr>
                 <th>Code</th>
