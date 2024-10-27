@@ -36,7 +36,9 @@
                     <td style="border-left: none;">${product.getPriceCurrencyFormat()}</td>
                     <td>
                         <form method="post" action="product.jsp">
-                            <input type="hidden" id="editProduct" name="product" value="${product}"/>
+                           <input type="hidden" id="editProduct" name="product" value="${product.code}"/>
+                            <input type="hidden" name="description" value="${product.description}"/>
+                            <input type="hidden" name="price" value="${product.price}"/>
                             <input type="submit" value="Edit"/>
                         </form>
                     </td>
