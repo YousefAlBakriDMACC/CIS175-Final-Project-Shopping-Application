@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product Maintenance</title>
+        <link rel="stylesheet" href="includes/styleMain.css">
     </head>
     <body>
         <%@ include file="includes/header.jsp" %>
