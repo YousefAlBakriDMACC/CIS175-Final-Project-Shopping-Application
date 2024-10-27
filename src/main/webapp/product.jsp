@@ -3,8 +3,13 @@
     Created on : Oct 9, 2024, 5:07:35 PM
     Author     : josep
 --%>
+<%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product"%>
+<%@page import="java.io.BufferedWriter"%>
+<%@page import="java.io.FileWriter"%>
+<%@page import="java.io.IOException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,8 +20,9 @@
 <body>
 request. get attribute product
     <h1>Product Details</h1>
+<%-- request. get attribute product --%>
 
-        <form action="Add.java" method="post">
+    <form action="${pageContext.request.contextPath}/insertProduct" method="post">
         <input type="hidden" name="productId" value="${product.productId}" />
 
         
@@ -39,7 +45,5 @@ request. get attribute product
     <form action="products.jsp" method="get">
         <button type="submit">View Products</button>
     </form>
-
-
 </body>
 </html>
