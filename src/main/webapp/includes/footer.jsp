@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<footer>
-      <h4>Author: CIS 175 Final Project Group A</h4>
-</footer>
+<h4><i>Author: CIS 175 Final Project Group A</i></h4>
+</body>
+</html>
+

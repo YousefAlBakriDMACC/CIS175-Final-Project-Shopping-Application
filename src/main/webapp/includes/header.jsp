@@ -5,7 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<header>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Product Maintenance</title>
+        <link rel="stylesheet" href="includes/styleMain.css">
+    </head>
+<body>
             <h1>CIS 175 Final Project</h1>
-</header>
+

@@ -10,18 +10,10 @@
 <%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO"%>
 <%@taglib prefix="init" uri="/WEB-INF/tld/init.tld"%>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Our Products</title>
-        <link rel="stylesheet" href="includes/styleMain.css">
-    </head>
-    <body>
         <%@ include file="includes/header.jsp" %>
                 
         <init:products path="/WEB-INF/data/products.txt"/>
-        <h1>Products</h1>
+        <h2>Products</h2>
         <table id="products">
             <tr>
                 <th>Code</th>
@@ -53,5 +45,3 @@
 <button type="button" onclick="window.location.href='add.jsp'">Add Product</button>
 
         <%@ include file="includes/footer.jsp" %> 
-    </body>
-</html>

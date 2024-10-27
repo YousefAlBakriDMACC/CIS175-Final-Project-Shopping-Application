@@ -5,17 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Product Maintenance</title>
-        <link rel="stylesheet" href="includes/styleMain.css">
-    </head>
-    <body>
+
         <%@ include file="includes/header.jsp" %>
         
-        <h2>Product Maintenance</h2>
+        <h3>Product Maintenance</h3>
         
         <br>
         <a href="products.jsp">View Products</a>
@@ -23,5 +16,3 @@
         <br>
          <%@ include file="includes/footer.jsp" %> 
          
-    </body>
-</html>
