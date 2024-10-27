@@ -19,6 +19,7 @@
     </head>
     <body>
         <init:products path="/WEB-INF/data/products.txt"/>
+        <%@ include file="includes/header.html" %>
         <h1>Products</h1>
         <table id="products">
             <tr>
@@ -50,10 +51,8 @@
             </c:forEach>
         </table>
         
-        <form method="post" action="Product">
-            <input type="hidden" id="addProduct" name="product" value="${null}"/>
-            <input type="submit" value="Add Product"/>
-        </form>
+        <button type="button" onclick="window.location.href='add.jsp'">Add Product</button>
         
+        <%@ include file="includes/footer.html" %> 
     </body>
 </html>

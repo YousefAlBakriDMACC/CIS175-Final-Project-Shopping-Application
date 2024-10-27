@@ -25,19 +25,7 @@ public final class ProductsServletContextListner implements ServletContextListen
         context = event.getServletContext();
     }
     
-    /**
-     * Uses the ServletContext object to convert a relative path to its real equivalent
-     * @param relativePath The file path to convert
-     * @return The converted file path
-     * 
-     * NOTE: EXPIRIMENTAL (10/20/24)
-     */
-    public static String generateRealFilePath(String relativePath) {
-        if (context != null) {
-            return context.getRealPath(relativePath);            
-        }
-        else {
-            return "";
-        }
+    public static ServletContext getServletContext() {
+        return context;
     }
 }

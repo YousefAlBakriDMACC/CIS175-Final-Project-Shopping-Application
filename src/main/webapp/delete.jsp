@@ -10,8 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="includes/styleMain.css">
     </head>
     <body>
+        <%@ include file="includes/header.html" %>
         <table>
             <tr>
                 <th>Product Code</th>
@@ -31,5 +33,7 @@
                 <button type="submit" id ="confirm">yes</button>
             <button type="button" onclick="window.location.href='products.jsp'">No</button> 
         </form>
+            
+        <%@ include file="includes/footer.html" %> 
     </body>
 </html>
