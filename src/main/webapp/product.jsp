@@ -23,21 +23,21 @@
 
     <h1>Product Details</h1>
         <init:products path="/WEB-INF/data/products.txt"/>
-        
-        <form action="add.java" method="post">
-        <input type="hidden" name="productId" value="${product.productId}" />
+
+        <form action="Add" method="post">
+        <input type="hidden" name="productId" value="${param.productId}" />
 
 
         <label for="code">Code:</label>
-        <input type="text" id="code" name="code" value="${product.code}" required /><br><br>
+        <input type="text" id="code" name="code" value="${param.product}" required /><br><br>
 
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" value="${product.description}" required /><br><br>
+        <input type="text" id="description" name="description" value="${param.description}" required /><br><br>
 
 
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price" value="${product.price}" required /><br><br>
+        <input type="text" id="price" name="price" value="${param.price}" required /><br><br>
 
 
         <input type="submit" value="Save Product" />
