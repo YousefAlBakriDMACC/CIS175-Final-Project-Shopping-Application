@@ -41,8 +41,8 @@
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="delete.jsp">
-                            <input type="hidden" id="deleteProduct" name="product" value="${product}"/>
+                        <form method="post" action="Delete">
+                            <input type="hidden" id="deleteProduct" name="product" value="${product.toString()}"/>
                             <input type="hidden" id="confirmDelete" name="confirmDelete" value="false"/> 
                            <input type="submit" value="Delete"/>
                         </form>

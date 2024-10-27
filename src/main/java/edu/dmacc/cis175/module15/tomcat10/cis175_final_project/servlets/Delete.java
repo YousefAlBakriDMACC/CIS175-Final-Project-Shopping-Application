@@ -34,10 +34,12 @@ public class Delete extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if (request.getParameter("confirmDelete").equals("false")) {
+                request.getSession().setAttribute("product", new Product(request.getParameter("product")));
                 String url = "/delete.jsp";
                 getServletContext().getRequestDispatcher(url).forward(request, response);
             } else {
-                ProductIO.deleteProduct(new Product(request.getParameter("product")));
+                ProductIO.deleteProduct((Product)(request.getSession().getAttribute("product")));
+                request.getSession().removeAttribute("product");
                 String url = "/products.jsp";
                 getServletContext().getRequestDispatcher(url).forward(request, response);
             }

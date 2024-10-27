@@ -30,7 +30,7 @@
         <form action="Delete" method="post">
             <input type="hidden" name="confirmDelete" value="true">
             <label for ="confirm">Are you sure you want to delete this product?</label>
-                <button type="submit" id ="confirm">yes</button>
+                <button type="submit" id ="confirm">Yes</button>
             <button type="button" onclick="window.location.href='products.jsp'">No</button> 
         </form>
             
