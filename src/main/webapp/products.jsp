@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="includes/styleMain.css">
     </head>
     <body>
+        <%@ include file="includes/header.jsp" %>
+                
         <init:products path="/WEB-INF/data/products.txt"/>
         <h1>Products</h1>
         <table id="products">
@@ -52,6 +54,6 @@
         <form method="post" action="Add">
             <input type="submit" value="Add Product"/>
         </form>
-        
+        <%@ include file="includes/footer.jsp" %> 
     </body>
 </html>
