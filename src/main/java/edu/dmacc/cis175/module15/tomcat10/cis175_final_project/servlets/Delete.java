@@ -10,6 +10,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
 
 /**
  *
@@ -31,15 +33,18 @@ public class Delete extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Delete</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Delete at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            if (request.getParameter("confirmDelete").equals("false")) {
+                String url = "/delete.jsp";
+                getServletContext().getRequestDispatcher(url).forward(request, response);
+            } else {
+                ProductIO.deleteProduct(new Product(request.getParameter("product")));
+                String url = "/products.jsp";
+                getServletContext().getRequestDispatcher(url).forward(request, response);
+            }
+            
+            
+            
+            
         }
     }
 

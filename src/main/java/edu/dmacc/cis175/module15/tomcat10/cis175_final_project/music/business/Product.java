@@ -6,6 +6,7 @@ package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business;
 import java.text.NumberFormat;
 
 import java.io.Serializable;
+import java.util.StringTokenizer;
 
  
 
@@ -24,6 +25,15 @@ public class Product implements Serializable {
  
 
     public Product() {}
+    
+    public Product(String fromToString) {
+        StringTokenizer t = new StringTokenizer(fromToString, "|");
+        if (t.countTokens() >= 3) {
+            this.code = t.nextToken();
+            this.description = t.nextToken();
+            this.price = Double.parseDouble(t.nextToken());
+        }
+    }
 
  
 
@@ -141,6 +151,11 @@ public class Product implements Serializable {
 
         return "Audio CD";
 
+    }
+
+    @Override
+    public String toString() {
+        return code + "|" + description + "|" + price;
     }
 
 }

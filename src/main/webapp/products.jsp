@@ -35,21 +35,23 @@
                     <td style="border-left: none;">${product.getPriceCurrencyFormat()}</td>
                     <td>
                         <form method="post" action="Product">
-                            <input type="hidden" id="product" name="product" value="${product}"/>
+                            <input type="hidden" id="editProduct" name="product" value="${product}"/>
                             <input type="submit" value="Edit"/>
                         </form>
                     </td>
                     <td>
                         <form method="post" action="Delete">
-                            <input type="hidden" id="product" name="product" value="${product}"/>
-                            <input type="submit" value="Delete"/>
+                            <input type="hidden" id="deleteProduct" name="product" value="${product}"/>
+                            <input type="hidden" id="confirmDelete" name="confirmDelete" value="false"/> 
+                           <input type="submit" value="Delete"/>
                         </form>
                     </td>
                 </tr>
             </c:forEach>
         </table>
         
-        <form method="post" action="Add">
+        <form method="post" action="Product">
+            <input type="hidden" id="addProduct" name="product" value="${null}"/>
             <input type="submit" value="Add Product"/>
         </form>
         

@@ -12,6 +12,24 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <table>
+            <tr>
+                <th>Product Code</th>
+                <th>Product Description</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>${product.code}</td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
+            </tr>
+        </table>
+
+        <form action="Delete" method="post">
+            <input type="hidden" name="confirmDelete" value="true">
+            <label for ="confirm">Are you sure you want to delete this product?</label>
+                <button type="submit" id ="confirm">yes</button>
+            <button type="button" onclick="window.location.href='products.jsp'">No</button> 
+        </form>
     </body>
 </html>
