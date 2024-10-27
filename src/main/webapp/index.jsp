@@ -16,13 +16,12 @@
         <link rel="stylesheet" href="includes/styleMain.css">
     </head>
     <body>
-        <%@ include file="includes/header.html" %>
+        <%@ include file="includes/header.jsp" %>
         <h3>Product Maintenance</h3>
-        <br/>
         <a href="products.jsp">View Products</a>
         <br/>
 
-        <%@ include file="includes/footer.html" %> 
+        <%@ include file="includes/footer.jsp" %> 
     </body>
 </html>
 

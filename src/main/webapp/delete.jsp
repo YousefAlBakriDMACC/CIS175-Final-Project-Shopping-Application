@@ -5,15 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" href="includes/styleMain.css">
-    </head>
-    <body>
-        <%@ include file="includes/header.html" %>
+
+        <%@ include file="includes/header.jsp" %>
         <table>
             <tr>
                 <th>Product Code</th>
@@ -34,6 +27,5 @@
             <button type="button" onclick="window.location.href='products.jsp'">No</button> 
         </form>
             
-        <%@ include file="includes/footer.html" %> 
-    </body>
-</html>
+        <%@ include file="includes/footer.jsp" %> 
+

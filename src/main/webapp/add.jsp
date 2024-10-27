@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="includes/styleMain.css">
     </head>
     <body>
-        <%@ include file="includes/header.html" %>
+        <%@ include file="includes/header.jsp" %>
         <h1>Product Details</h1>
         <%-- request. get attribute product --%>
         <init:products path="/WEB-INF/data/products.txt"/>
@@ -40,13 +40,13 @@
             <input type="text" id="price" name="price" value="${product.price}" required /><br><br>
 
 
-            <input type="submit" value="save Product" />
+            <input type="submit" value="Save Product" />
 
 
         </form>
         <button type="button" onclick="window.location.href='products.jsp'">View Products</button>
 
 
-        <%@ include file="includes/footer.html" %> 
+        <%@ include file="includes/footer.jsp" %> 
     </body>
 </html>

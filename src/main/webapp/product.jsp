@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="includes/styleMain.css">
 </head>
 <body>
-    <%@ include file="includes/header.html" %>
+    <%@ include file="includes/header.jsp" %>
 
     <h1>Product Details</h1>
         <init:products path="/WEB-INF/data/products.txt"/>
@@ -48,6 +48,6 @@
         <button type="submit">View Products</button>
     </form>
 
-    <%@ include file="includes/footer.html" %> 
+    <%@ include file="includes/footer.jsp" %> 
 </body>
 </html>

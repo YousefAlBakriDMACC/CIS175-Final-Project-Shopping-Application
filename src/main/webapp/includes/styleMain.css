@@ -36,15 +36,6 @@ body {
     background-color: lightgoldenrodyellow;
 }
 
-header {
-    padding: 8px;
-    text-align: center;
-    background-color: lightblue;
-    border: solid navy 2px;
-    color: navy;
-    font-size: 25px;
-}
-
 h1 {
     padding: 8px;
     text-align: center;
@@ -86,9 +77,6 @@ a:hover {
     color: gray;
 }
 
-footer {
-   padding: 1px;
-}
 
 h4 {
     text-align: center;
