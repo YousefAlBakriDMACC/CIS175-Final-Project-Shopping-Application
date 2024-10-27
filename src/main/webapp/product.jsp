@@ -12,13 +12,7 @@
 <%@page import="java.io.IOException"%>
 <%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Music Store - Product Details</title>
-    <link rel="stylesheet" href="includes/styleMain.css">
-</head>
-<body>
+
     <%@ include file="includes/header.jsp" %>
 
     <h1>Product Details</h1>
@@ -49,5 +43,4 @@
     </form>
 
     <%@ include file="includes/footer.jsp" %> 
-</body>
-</html>
+
