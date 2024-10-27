@@ -12,6 +12,22 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <table>
+            <tr>
+                <th>Product Code</th>
+                <th>Product Description</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>${product.code}</td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
+            </tr>
+        </table>
+            
+        <form action="deleteProduct" method="post">
+            <input type="hidden" name="productCode" value="${product.code}">
+            <button type="submit" class="Delete">Confirm Delete</button>
+        </form>
     </body>
 </html>
