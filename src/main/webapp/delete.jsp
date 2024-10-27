@@ -25,9 +25,11 @@
             </tr>
         </table>
             
-        <form action="deleteProduct" method="post">
-            <input type="hidden" name="productCode" value="${product.code}">
-            <button type="submit" class="Delete">Confirm Delete</button>
-        </form>
+    <form action="Delete" method="post">
+        <input type="hidden" name="productCode" value="${product.code}">
+            <p>Are you sure you want to delete this product?</p>
+        <button type="submit">Yes</button>
+    </form>
+        <button type="submit" onclick="history.back()">No</button>          
     </body>
 </html>

@@ -10,6 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
 
 /**
  *
@@ -67,9 +68,15 @@ public class Delete extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        String productCode = request.getParameter("productCode");
+
+        if ("delete".equals(action) && productCode != null) {
+            ProductIO.deleteProduct(productCode);  // Assuming deleteProduct is a method in ProductIO
+        }
+
+        response.sendRedirect("product.jsp"); // Redirect back to the JSP after action
     }
 
     /**
