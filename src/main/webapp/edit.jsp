@@ -18,7 +18,7 @@
     <h1>Product Details</h1>
         <init:products path="/WEB-INF/data/products.txt"/>
 
-        <form action="Add" method="post">
+        <form action = "Product" method = "post">
         <input type="hidden" name="productId" value="${param.productId}" />
 
 
@@ -34,7 +34,7 @@
         <input type="text" id="price" name="price" value="${param.price}" required /><br><br>
 
 
-        <input type="submit" value="Save Product" />
+        <input type="submit" value="Update Product" />
 
 
     </form>
