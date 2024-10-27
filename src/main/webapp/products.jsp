@@ -35,13 +35,13 @@
                     <td style="border-right: none;">${product.description}</td>
                     <td style="border-left: none;">${product.getPriceCurrencyFormat()}</td>
                     <td>
-                        <form method="post" action="Product">
+                        <form method="post" action="product.jsp">
                             <input type="hidden" id="editProduct" name="product" value="${product}"/>
                             <input type="submit" value="Edit"/>
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="Delete">
+                        <form method="post" action="delete.jsp">
                             <input type="hidden" id="deleteProduct" name="product" value="${product}"/>
                             <input type="hidden" id="confirmDelete" name="confirmDelete" value="false"/> 
                            <input type="submit" value="Delete"/>
