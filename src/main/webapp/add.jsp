@@ -5,13 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product"%>
-<%@page import="java.io.BufferedWriter"%>
-<%@page import="java.io.FileWriter"%>
-<%@page import="java.io.IOException"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO"%>
-
 <%@ include file="includes/header.jsp" %>
 
 <h2>Product Details</h2>
@@ -28,7 +21,7 @@
     <label for="price">Price:</label>
     <input type="text" id="price" name="price" value="${product.price}" required /><br><br>
 
-    <input type="submit" value="Save Product" />
+    <input type="button" onclick="validateForm(this)" value="Save Product" />
 </form>
 
 <button type="button" onclick="window.location.href='products.jsp'">View Products</button>
