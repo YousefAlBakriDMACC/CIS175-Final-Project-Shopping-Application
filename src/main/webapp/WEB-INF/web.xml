@@ -4,10 +4,6 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>Products</servlet-name>
-        <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Products</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Product</servlet-name>
         <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Edit</servlet-class>
     </servlet>
@@ -19,10 +15,6 @@
         <servlet-name>Delete</servlet-name>
         <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Delete</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Products</servlet-name>
-        <url-pattern>/Products</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Product</servlet-name>
         <url-pattern>/Product</url-pattern>

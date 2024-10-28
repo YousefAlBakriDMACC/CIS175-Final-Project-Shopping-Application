@@ -30,22 +30,24 @@ public class Edit extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-         String code = request.getParameter("code");
+            response.setContentType("text/html;charset=UTF-8");
+        //Get product data from form
+        String code = request.getParameter("code");
         String description = request.getParameter("description");
         double price = Double.parseDouble(request.getParameter("price"));
         
-        
+        //Updates the product with the provided code
+        //FIXME: Requires the product code to remain static
+        //while presenting it as an updatable option
         Product updateProduct = new Product();
         updateProduct.setCode(code);
         updateProduct.setDescription(description);
         updateProduct.setPrice(price);
         ProductIO.updateProduct(updateProduct);
-        response.sendRedirect("products.jsp");
-        }
-                
-
+        
+        //Return to main
+        String url = "/products.jsp";
+        request.getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

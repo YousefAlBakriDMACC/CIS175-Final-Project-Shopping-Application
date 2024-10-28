@@ -30,23 +30,18 @@ public class Delete extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            if (request.getParameter("confirmDelete").equals("false")) {
-                request.getSession().setAttribute("product", new Product(request.getParameter("product")));
-                String url = "/delete.jsp";
-                getServletContext().getRequestDispatcher(url).forward(request, response);
-            } else {
-                ProductIO.deleteProduct((Product)(request.getSession().getAttribute("product")));
-                request.getSession().removeAttribute("product");
-                String url = "/products.jsp";
-                getServletContext().getRequestDispatcher(url).forward(request, response);
-            }
-            
-            
-            
-            
+            response.setContentType("text/html;charset=UTF-8");
+        if (request.getParameter("confirmDelete").equals("false")) {
+            //Set up delete.jsp and forward
+            request.getSession().setAttribute("product", new Product(request.getParameter("product")));
+            String url = "/delete.jsp";
+            request.getServletContext().getRequestDispatcher(url).forward(request, response);
+        } else {
+            //Delete selected product and return
+            ProductIO.deleteProduct((Product)(request.getSession().getAttribute("product")));
+            request.getSession().removeAttribute("product");
+            String url = "/products.jsp";
+            request.getServletContext().getRequestDispatcher(url).forward(request, response);
         }
     }
 
