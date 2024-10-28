@@ -5,13 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@taglib prefix="init" uri="/WEB-INF/tld/init.tld"%>
+<init:products path="/WEB-INF/data/products.txt"/>
+
+<%@ include file="includes/header.jsp" %>
+
+<h3>Product Maintenance</h3>
+<a href="products.jsp">View Products</a>
+<br/>
+
+<%@ include file="includes/footer.jsp" %> 
+
+

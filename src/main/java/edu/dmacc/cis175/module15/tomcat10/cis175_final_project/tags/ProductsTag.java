@@ -23,7 +23,7 @@ public class ProductsTag extends TagSupport {
     @Override
     public int doStartTag() throws JspException {
         try {
-            String realDataPath = ProductsServletContextListner.generateRealFilePath(path);
+            String realDataPath = ProductsServletContextListner.getServletContext().getRealPath(path);
             ProductIO.init(realDataPath);
         }
         catch (Exception e) { 

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : product
-    Created on : Oct 9, 2024, 5:07:35 PM
+    Document   : header
+    Created on : Oct 27, 2024, 5:48:19 PM
     Author     : josep
 --%>
 
@@ -9,9 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Product Maintenance</title>
+        <link rel="stylesheet" href="includes/styleMain.css">
     </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<body>
+<h1>CIS 175 Final Project</h1>
