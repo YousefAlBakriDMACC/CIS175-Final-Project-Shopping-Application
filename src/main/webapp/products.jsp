@@ -18,20 +18,20 @@
     </tr>
     <c:forEach var="product" items="${ProductIO.selectProducts()}">
         <tr>
-            <td>${product.code}</td>
-            <td style="border-right: none;">${product.description}</td>
-            <td style="border-left: none;">${product.getPriceCurrencyFormat()}</td>
+            <td><c:out value='${product.code}'/></td>
+            <td style="border-right: none;"><c:out value='${product.description}'/></td>
+            <td style="border-left: none;"><c:out value='${product.getPriceCurrencyFormat()}'/></td>
             <td>
                 <form method="post" action="edit.jsp">
-                   <input type="hidden" id="editProduct" name="product" value="${product.code}"/>
-                    <input type="hidden" name="description" value="${product.description}"/>
-                    <input type="hidden" name="price" value="${product.price}"/>
+                    <input type="hidden" name="code" value="<c:out value='${product.code}'/>"/>
+                    <input type="hidden" name="description" value="<c:out value='${product.description}'/>"/>
+                    <input type="hidden" name="price" value="<c:out value='${product.price}'/>"/>
                     <input type="submit" value="Edit"/>
                 </form>
             </td>
             <td>
                 <form method="post" action="Delete">
-                    <input type="hidden" id="deleteProduct" name="product" value="${product.toString()}"/>
+                    <input type="hidden" id="deleteProduct" name="product" value="<c:out value='${product.toString()}'/>"/>
                     <input type="hidden" id="confirmDelete" name="confirmDelete" value="false"/> 
                    <input type="submit" value="Delete"/>
                 </form>

@@ -9,16 +9,16 @@
 
 <h2>Product Details</h2>
 <form action = "Product" method = "post">
-    <input type="hidden" name="productId" value="${param.productId}" />
+    <input type="hidden" name="productId" value="<c:out value='${param.productId}'/>" />
 
     <label for="code">Code:</label>
-    <input type="text" id="code" name="code" value="${param.product}" required /><br><br>
+    <input type="text" id="code" name="code" value="<c:out value='${param.code}'/>" required /><br><br>
 
     <label for="description">Description:</label>
-    <input type="text" id="description" name="description" value="${param.description}" required /><br><br>
+    <input type="text" id="description" name="description" value="<c:out value='${param.description}'/>" required /><br><br>
 
     <label for="price">Price:</label>
-    <input type="text" id="price" name="price" value="${param.price}" required /><br><br>
+    <input type="text" id="price" name="price" value="<c:out value='${param.price}'/>" required /><br><br>
 
     <input type="button" onclick="validateForm(this)" value="Update Product" />
 </form>

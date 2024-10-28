@@ -14,9 +14,9 @@
         <th>Price</th>
     </tr>
     <tr>
-        <td>${product.code}</td>
-        <td>${product.description}</td>
-        <td>${product.price}</td>
+        <td><c:out value='${product.code}'/></td>
+        <td><c:out value='${product.description}'/></td>
+        <td><c:out value='${product.price}'/></td>
     </tr>
 </table>
 

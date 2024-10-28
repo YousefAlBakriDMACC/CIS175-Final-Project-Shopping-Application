@@ -10,16 +10,16 @@
 <h2>Product Details</h2>
 
 <form action="Add" method="post">
-    <input type="hidden" name="productId" value="${product.productID}" />
+    <input type="hidden" name="productId" value="<c:out value='${product.productID}'/>" />
 
     <label for="code">Code:</label>
-    <input type="text" id="code" name="code" value="${product}" required /><br><br>
+    <input type="text" id="code" name="code" value="<c:out value='${product.code}'/>" required /><br><br>
 
     <label for="description">Description:</label>
-    <input type="text" id="description" name="description" value="${product.description}" required /><br><br>
+    <input type="text" id="description" name="description" value="<c:out value='${product.description}'/>" required /><br><br>
 
     <label for="price">Price:</label>
-    <input type="text" id="price" name="price" value="${product.price}" required /><br><br>
+    <input type="text" id="price" name="price" value="<c:out value='${product.price}'/>" required /><br><br>
 
     <input type="button" onclick="validateForm(this)" value="Save Product" />
 </form>
