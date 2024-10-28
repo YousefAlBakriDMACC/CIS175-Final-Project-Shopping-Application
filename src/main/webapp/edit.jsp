@@ -15,7 +15,7 @@
 
     <%@ include file="includes/header.jsp" %>
 
-    <h1>Product Details</h1>
+    <h2>Product Details</h2>
         <init:products path="/WEB-INF/data/products.txt"/>
 
         <form action = "Product" method = "post">
