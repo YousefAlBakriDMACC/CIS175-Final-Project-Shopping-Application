@@ -5,14 +5,11 @@
 package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
 import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
 

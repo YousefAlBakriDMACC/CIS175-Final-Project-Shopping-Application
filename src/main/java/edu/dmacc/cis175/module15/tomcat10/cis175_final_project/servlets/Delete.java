@@ -5,7 +5,6 @@
 package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

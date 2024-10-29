@@ -3,15 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets;
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
 
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
 
 /**
  *

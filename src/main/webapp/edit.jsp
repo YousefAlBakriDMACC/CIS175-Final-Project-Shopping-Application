@@ -7,12 +7,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="includes/header.jsp" %>
 
+<%@taglib prefix="utils" uri="/WEB-INF/tld/utils.tld"%>
+
 <h2>Product Details</h2>
 <form action = "Product" method = "post">
     <input type="hidden" name="productId" value="<c:out value='${param.productId}'/>" />
 
     <label for="code">Code:</label>
-    <input type="text" id="code" name="code" value="<c:out value='${param.code}'/>" required /><br><br>
+    <input type="text" id="code" name="code" value="<c:out value='${param.code}'/>" required 
+           onchange="this.insertAdjacentHTML('afterend', ''.concat('<utils:validate>', this.value, '</utils:validate>'));"
+           onload="this.insertAdjacentHTML('afterend', ''.concat('<utils:validate>', this.value, '</utils:validate>'));"/><span></span><br><br>
+    <utils:validate>Test</utils:validate>
+    
 
     <label for="description">Description:</label>
     <input type="text" id="description" name="description" value="<c:out value='${param.description}'/>" required /><br><br>

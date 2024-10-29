@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="init" uri="/WEB-INF/tld/init.tld"%>
-<init:products path="/WEB-INF/data/products.txt"/>
+<%@taglib prefix="utils" uri="/WEB-INF/tld/utils.tld"%>
+<utils:init path="/WEB-INF/data/products.txt"/>
 
 <%@ include file="includes/header.jsp" %>
 
