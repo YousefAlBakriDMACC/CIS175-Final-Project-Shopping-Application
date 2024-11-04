@@ -13,13 +13,16 @@
     <input type="hidden" name="productId" value="<c:out value='${product.productID}'/>" />
 
     <label for="code">Code:</label>
-    <input type="text" id="code" name="code" value="<c:out value='${product.code}'/>" required /><br><br>
+    <input type="text" id="code" name="code" value="<c:out value='${product.code}'/>" required />
+    <utils:validate value="${product.code}" /><br><br>
 
     <label for="description">Description:</label>
-    <input type="text" id="description" name="description" value="<c:out value='${product.description}'/>" required /><br><br>
+    <input type="text" id="description" name="description" value="<c:out value='${product.description}'/>" required />
+    <utils:validate value="${product.description}" /><br><br>
 
     <label for="price">Price:</label>
-    <input type="text" id="price" name="price" value="<c:out value='${product.price}'/>" required /><br><br>
+    <input type="text" id="price" name="price" value="<c:out value='${product.price}'/>" required />
+    <utils:validate value="${product.price}" /><br><br>
 
     <input type="button" onclick="validateForm(this)" value="Save Product" />
 </form>

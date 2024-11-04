@@ -33,9 +33,6 @@ public class ValidateFieldTag extends BodyTagSupport {
             
             if (value.equals("")) {
                 pageContext.getOut().print("*");
-            } else {
-                //TODO: Remove after testing
-                pageContext.getOut().println("NOT EMPTY!");
             }
         } catch (IOException e) {
             System.out.println(e);
