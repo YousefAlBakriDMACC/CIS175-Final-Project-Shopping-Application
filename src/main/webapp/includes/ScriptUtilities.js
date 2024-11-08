@@ -21,9 +21,12 @@ function validateForm(context) {
         }).forEach(element => {
             //Validate existent
             if (!element.value && parseInt(element.value) !== 0) {
-                alert(element.getAttribute("name").charAt(0).toUpperCase() + element.getAttribute("name").slice(1) + " is a required field.");
+                //alert(element.getAttribute("name").charAt(0).toUpperCase() + element.getAttribute("name").slice(1) + " is a required field.");
+                element.nextSibling.textContent = "*";
                 flagValid = false;
                 return;
+            } else {
+                element.nextSibling.textContent = "";
             }
 
             //Validate numeric
