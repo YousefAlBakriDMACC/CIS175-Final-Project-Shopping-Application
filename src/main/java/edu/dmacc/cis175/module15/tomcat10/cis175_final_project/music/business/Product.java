@@ -14,7 +14,7 @@ public class Product implements Serializable {
 
  
 
-    private Long productId;   
+    private int productId;   
 
     private String code;
 
@@ -37,7 +37,7 @@ public class Product implements Serializable {
 
  
 
-    public Long getId() {
+    public int getId() {
 
         return productId;
 
@@ -45,7 +45,7 @@ public class Product implements Serializable {
 
  
 
-    public void setId(Long productId) {
+    public void setId(int productId) {
 
         this.productId = productId;
 
