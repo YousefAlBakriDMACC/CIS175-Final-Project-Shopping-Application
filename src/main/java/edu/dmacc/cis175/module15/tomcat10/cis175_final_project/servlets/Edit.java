@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductDB;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Edit extends HttpServlet {
         updateProduct.setCode(code);
         updateProduct.setDescription(description);
         updateProduct.setPrice(price);
-        ProductIO.updateProduct(updateProduct);
+        ProductDB.updateProduct(updateProduct);
         
         //Return to main
         String url = "/products.jsp";

@@ -10,19 +10,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+
 /**
  *
  * @author kaleb
  */
 public class ProductDB {
 
-        public static List<Product> selectProducts() {
+    public static List<Product> selectProducts() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT ProductID, ProductCode, ProductDescription, ProductPrice FROM Product";
 
-        try (Connection conn = getConnection();
-             PreparedStatement ps = conn.prepareStatement(query);
-             ResultSet rs = ps.executeQuery()) {
+        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query); ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 Product p = new Product();
                 p.setId(rs.getInt("ProductID"));
@@ -39,8 +38,7 @@ public class ProductDB {
 
     public static Product selectProduct(String productCode) {
         String query = "SELECT ProductID, ProductCode, ProductDescription, ProductPrice FROM Product WHERE ProductCode = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, productCode);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -64,8 +62,7 @@ public class ProductDB {
 
     public static void insertProduct(Product product) {
         String query = "INSERT INTO Product (ProductCode, ProductDescription, ProductPrice) VALUES (?, ?, ?)";
-        try (Connection conn = getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, product.getCode());
             ps.setString(2, product.getDescription());
             ps.setDouble(3, product.getPrice());
@@ -77,8 +74,7 @@ public class ProductDB {
 
     public static void updateProduct(Product product) {
         String query = "UPDATE Product SET ProductDescription = ?, ProductPrice = ? WHERE ProductCode = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, product.getDescription());
             ps.setDouble(2, product.getPrice());
             ps.setString(3, product.getCode());
@@ -90,8 +86,7 @@ public class ProductDB {
 
     public static void deleteProduct(Product product) {
         String query = "DELETE FROM Product WHERE ProductCode = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
+        try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, product.getCode());
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -100,6 +95,6 @@ public class ProductDB {
     }
 
     private static Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return ConnectionPool.getInstance().getConnection();
     }
 }

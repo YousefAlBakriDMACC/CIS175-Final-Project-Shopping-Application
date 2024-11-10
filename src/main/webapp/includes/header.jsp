@@ -9,6 +9,7 @@
 <%@taglib prefix="utils" uri="/WEB-INF/tld/utils.tld"%>
 <%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product"%>
 <%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO"%>
+<%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductDB"%>
 <%@page import="edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.InfiniteSequencer"%>
 <!DOCTYPE html>
 <html>

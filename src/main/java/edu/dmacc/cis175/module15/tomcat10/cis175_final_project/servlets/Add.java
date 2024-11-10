@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductDB;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Add extends HttpServlet {
         product.setCode(code);
         product.setDescription(description);
         product.setPrice(price);
-        ProductIO.insertProduct(product);
+        ProductDB.insertProduct(product);
 
         //Return to main
         String url = "/products.jsp";
