@@ -100,4 +100,3 @@ INSERT INTO product VALUES
 (3,'pf02','Paddlefoot - The second CD',14.95),
 (4,'jr01','Joe Rut - Genuine Wood Grained Finish',14.95);
 
-USE music;

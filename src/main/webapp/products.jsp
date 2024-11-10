@@ -16,7 +16,7 @@
         <th></th>
         <th></th>
     </tr>
-    <c:forEach var="product" items="${ProductIO.selectProducts()}">
+    <c:forEach var="product" items="${ProductDB.selectProducts()}">
         <tr>
             <td><c:out value='${product.code}'/></td>
             <td style="border-right: none;"><c:out value='${product.description}'/></td>
