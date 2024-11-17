@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="utils" uri="/WEB-INF/tld/utils.tld"%>
-<utils:init path="/WEB-INF/data/products.txt"/>
+<utils:init path="/WEB-INF/data/create_music.sql"/>
 
 <%@ include file="includes/header.jsp" %>
 

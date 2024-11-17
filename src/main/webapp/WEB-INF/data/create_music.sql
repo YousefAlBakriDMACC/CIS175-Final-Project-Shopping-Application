@@ -1,23 +1,4 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/SQLTemplate.sql to edit this template
- */
-/**
- * Author:  josep
- * Created: Nov 8, 2024
- */
-
-/************************************************************
-* Create the database named music, its tables, and a user
-************************************************************/
-  
-DROP DATABASE IF EXISTS music;
-  
-CREATE DATABASE music;
-  
-USE music;
-  
-CREATE TABLE User (
+CREATE TABLE IF NOT EXISTS User (
     UserID INT NOT NULL AUTO_INCREMENT,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
@@ -36,7 +17,7 @@ CREATE TABLE User (
     PRIMARY KEY (UserID)
 );
   
-CREATE TABLE Invoice(
+CREATE TABLE IF NOT EXISTS Invoice(
     InvoiceID INT NOT NULL AUTO_INCREMENT,
     UserID INT NOT NULL,
     InvoiceDate DATETIME NOT NULL DEFAULT '1900-01-01 00:00:00',
@@ -47,7 +28,7 @@ CREATE TABLE Invoice(
     FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
   
-CREATE TABLE LineItem(
+CREATE TABLE IF NOT EXISTS LineItem(
     LineItemID INT NOT NULL AUTO_INCREMENT,
     InvoiceID INT NOT NULL DEFAULT '0',
     ProductID INT NOT NULL DEFAULT '0',
@@ -57,7 +38,7 @@ CREATE TABLE LineItem(
     FOREIGN KEY (InvoiceID) REFERENCES Invoice (InvoiceID)
 );
   
-CREATE TABLE Product(
+CREATE TABLE IF NOT EXISTS Product(
     ProductID INT NOT NULL AUTO_INCREMENT,
     ProductCode VARCHAR(10) NOT NULL DEFAULT '',
     ProductDescription VARCHAR(100) NOT NULL DEFAULT '',
@@ -65,14 +46,18 @@ CREATE TABLE Product(
   
     PRIMARY KEY (ProductID)
 );
+
+INSERT INTO Product
+    SELECT * FROM (
+        VALUES
+        ROW('1', '8601', '86 (the band) - True Life Songs and Pictures', '14.95'),
+        ROW('2', 'pf01', 'Paddlefoot - The first CD', '12.95'),
+        ROW('3', 'pf02', 'Paddlefoot - The second CD', '14.95'),
+        ROW('4', 'jr01', 'Joe Rut - Genuine Wood Grained Finish', '14.95')
+    ) AS defaults
+    WHERE NOT EXISTS (SELECT NULL FROM Product);
   
-INSERT INTO Product VALUES 
-  ('1', '8601', '86 (the band) - True Life Songs and Pictures', '14.95'),
-  ('2', 'pf01', 'Paddlefoot - The first CD', '12.95'),
-  ('3', 'pf02', 'Paddlefoot - The second CD', '14.95'),
-  ('4', 'jr01', 'Joe Rut - Genuine Wood Grained Finish', '14.95');
-  
-CREATE TABLE Download (
+CREATE TABLE IF NOT EXISTS Download (
     DownloadID INT NOT NULL AUTO_INCREMENT,
     UserID INT NOT NULL,
     DownloadDate DATETIME NOT NULL,
@@ -85,7 +70,7 @@ CREATE TABLE Download (
 -- Create music_user and grant privileges
 
 DELIMITER //
-CREATE PROCEDURE drop_user_if_exists()
+CREATE PROCEDURE IF NOT EXISTS drop_user_if_exists()
 BEGIN
     DECLARE userCount BIGINT DEFAULT 0 ;
 

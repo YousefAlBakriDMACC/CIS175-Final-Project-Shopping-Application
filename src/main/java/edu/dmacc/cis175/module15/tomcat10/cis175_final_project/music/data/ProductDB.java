@@ -10,12 +10,119 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+import java.io.FileReader;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import org.apache.ibatis.jdbc.ScriptRunner;
 
 /**
  *
  * @author kaleb
  */
 public class ProductDB {
+    //JPA
+    public static void init(String filepath) {
+        throw new UnsupportedOperationException();
+    }
+    
+    public static List<Product> selectProducts() {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String selectQuery = "SELECT productObj FROM Product productObj";
+        TypedQuery<Product> myQuery = em.createQuery(selectQuery, Product.class);
+        List<Product> myResultSet;
+        
+        try {
+            myResultSet = myQuery.getResultList();
+        } finally {
+            em.close();
+        }
+        
+        //Standardize not empty
+        if (myResultSet == null || myResultSet.isEmpty()) {
+            return null;
+        } else {
+            return myResultSet;
+        }
+    }
+    
+    public static Product selectProduct(String productCode) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        Product p = null;
+        
+        try {
+            p = em.find(Product.class, productCode);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            em.close();
+        }
+        
+        return p;
+    }
+    
+    public static boolean exists(String productCode) {
+        return selectProduct(productCode) != null;
+    }
+    
+    public static void insertProduct(Product product) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();
+        try {
+            em.persist(product);
+            trans.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+        }
+    
+    public static void updateProduct(Product product) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();
+        try {
+            em.merge(product);
+            trans.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public static void deleteProduct(Product product) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();
+        try {
+            em.remove(em.merge(product));
+            trans.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            trans.rollback();
+        } finally {
+            em.close();
+        }
+    }
+    
+    /*
+    //JDBC
+    public static void init(String filepath) {
+        try (Connection conn = getConnection();) {
+            ScriptRunner scriptRunner = new ScriptRunner(conn);
+            scriptRunner.setSendFullScript(true);
+            scriptRunner.setStopOnError(true);
+            scriptRunner.setAutoCommit(true);
+            scriptRunner.runScript(new FileReader(filepath));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
     public static List<Product> selectProducts() {
         List<Product> products = new ArrayList<>();
@@ -97,4 +204,5 @@ public class ProductDB {
     private static Connection getConnection() {
         return ConnectionPool.getInstance().getConnection();
     }
+    */
 }
