@@ -5,16 +5,15 @@
 package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data;
 
 import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 import java.io.FileReader;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.TypedQuery;
-import org.apache.ibatis.jdbc.ScriptRunner;
 
 /**
  *

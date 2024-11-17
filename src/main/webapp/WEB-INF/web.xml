@@ -32,4 +32,12 @@
             30
         </session-timeout>
     </session-config>
+     <security-role>
+        <description>library employees</description>
+        <role-name>librarian</role-name>
+    </security-role>
+
+
+
+
 </web-app>

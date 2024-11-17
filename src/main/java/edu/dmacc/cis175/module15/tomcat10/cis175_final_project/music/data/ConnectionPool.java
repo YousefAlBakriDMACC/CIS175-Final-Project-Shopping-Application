@@ -38,7 +38,7 @@ public class ConnectionPool {
             //return dataSource.getConnection();
             String dbURL = "jdbc:mysql://localhost:3306/music";
             String username = "root";
-            String password = "sesame";
+            String password = "Farmer2=0";
             return DriverManager.getConnection(dbURL, username, password);
         } catch (SQLException e) {
             System.out.println(e);
