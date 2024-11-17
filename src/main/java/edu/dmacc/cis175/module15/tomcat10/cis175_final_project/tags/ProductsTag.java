@@ -6,7 +6,7 @@ package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.tags;
 
 import jakarta.servlet.jsp.*; 
 import jakarta.servlet.jsp.tagext.*; 
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductDB;
 
 /**
  *
@@ -23,7 +23,7 @@ public class ProductsTag extends TagSupport {
     public int doStartTag() throws JspException {
         try {
             String realDataPath = ProductsServletContextListner.getServletContext().getRealPath(path);
-            ProductIO.init(realDataPath);
+            ProductDB.init(realDataPath);
         }
         catch (Exception e) { 
             System.out.println(e); 
