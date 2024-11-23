@@ -21,12 +21,70 @@ import org.apache.ibatis.jdbc.ScriptRunner;
  * @author kaleb
  */
 public class ProductDB {
-    //JPA
+    //Master
     public static void init(String filepath) {
+        try {
+            initJPA(filepath);
+        } catch (Exception | Error e) {
+            initJDBC(filepath);
+        }
+    }
+
+    public static List<Product> selectProducts() {
+        try {
+            return selectProductsJPA();
+        } catch (Exception | Error e) {
+            return selectProductsJDBC();
+        }
+    }
+    
+    public static Product selectProduct(String productCode) {
+        try {
+            return selectProductJPA(productCode);
+        } catch (Exception | Error e) {
+            return selectProductJDBC(productCode);
+        }
+    }
+    
+    public static boolean exists(String productCode) {
+        try {
+            return existsJPA(productCode);
+        } catch (Exception | Error e) {
+            return existsJDBC(productCode);
+        }
+    } 
+    
+    public static void insertProduct(Product product) {
+        try {
+            insertProductJPA(product);
+        } catch (Exception | Error e) {
+            insertProductJDBC(product);
+        }
+    }
+    
+    public static void updateProduct(Product product) {
+        try {
+            updateProductJPA(product);
+        } catch (Exception | Error e) {
+            updateProductJDBC(product);
+        }
+    }
+    
+    public static void deleteProduct(Product product) {
+        try {
+            deleteProductJPA(product);
+        } catch (Exception | Error e) {
+            deleteProductJDBC(product);
+        }
+    }
+    
+    
+    //JPA
+    public static void initJPA(String filepath) {
         throw new UnsupportedOperationException();
     }
     
-    public static List<Product> selectProducts() {
+    public static List<Product> selectProductsJPA() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         String selectQuery = "SELECT productObj FROM Product productObj";
         TypedQuery<Product> myQuery = em.createQuery(selectQuery, Product.class);
@@ -46,7 +104,7 @@ public class ProductDB {
         }
     }
     
-    public static Product selectProduct(String productCode) {
+    public static Product selectProductJPA(String productCode) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         Product p = null;
         
@@ -61,11 +119,11 @@ public class ProductDB {
         return p;
     }
     
-    public static boolean exists(String productCode) {
-        return selectProduct(productCode) != null;
+    public static boolean existsJPA(String productCode) {
+        return selectProductJPA(productCode) != null;
     }
     
-    public static void insertProduct(Product product) {
+    public static void insertProductJPA(Product product) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         trans.begin();
@@ -80,7 +138,7 @@ public class ProductDB {
         }
         }
     
-    public static void updateProduct(Product product) {
+    public static void updateProductJPA(Product product) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         trans.begin();
@@ -95,7 +153,7 @@ public class ProductDB {
         }
     }
     
-    public static void deleteProduct(Product product) {
+    public static void deleteProductJPA(Product product) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         trans.begin();
@@ -110,9 +168,9 @@ public class ProductDB {
         }
     }
     
-    /*
+    
     //JDBC
-    public static void init(String filepath) {
+    public static void initJDBC(String filepath) {
         try (Connection conn = getConnection();) {
             ScriptRunner scriptRunner = new ScriptRunner(conn);
             scriptRunner.setSendFullScript(true);
@@ -124,7 +182,7 @@ public class ProductDB {
         }
     }
 
-    public static List<Product> selectProducts() {
+    public static List<Product> selectProductsJDBC() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT ProductID, ProductCode, ProductDescription, ProductPrice FROM Product";
 
@@ -143,7 +201,7 @@ public class ProductDB {
         return products;
     }
 
-    public static Product selectProduct(String productCode) {
+    public static Product selectProductJDBC(String productCode) {
         String query = "SELECT ProductID, ProductCode, ProductDescription, ProductPrice FROM Product WHERE ProductCode = ?";
         try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, productCode);
@@ -163,11 +221,11 @@ public class ProductDB {
         return null;
     }
 
-    public static boolean exists(String productCode) {
-        return selectProduct(productCode) != null;
+    public static boolean existsJDBC(String productCode) {
+        return selectProductJDBC(productCode) != null;
     }
 
-    public static void insertProduct(Product product) {
+    public static void insertProductJDBC(Product product) {
         String query = "INSERT INTO Product (ProductCode, ProductDescription, ProductPrice) VALUES (?, ?, ?)";
         try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, product.getCode());
@@ -179,7 +237,7 @@ public class ProductDB {
         }
     }
 
-    public static void updateProduct(Product product) {
+    public static void updateProductJDBC(Product product) {
         String query = "UPDATE Product SET ProductDescription = ?, ProductPrice = ? WHERE ProductCode = ?";
         try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, product.getDescription());
@@ -191,7 +249,7 @@ public class ProductDB {
         }
     }
 
-    public static void deleteProduct(Product product) {
+    public static void deleteProductJDBC(Product product) {
         String query = "DELETE FROM Product WHERE ProductCode = ?";
         try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, product.getCode());
@@ -204,5 +262,4 @@ public class ProductDB {
     private static Connection getConnection() {
         return ConnectionPool.getInstance().getConnection();
     }
-    */
 }
