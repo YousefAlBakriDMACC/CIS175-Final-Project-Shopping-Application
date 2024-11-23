@@ -27,6 +27,34 @@
         <servlet-name>Delete</servlet-name>
         <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
+    
+     <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>RetrictedMusic</web-resource-name>
+            <url-pattern>/Product</url-pattern>
+            <url-pattern>/Add</url-pattern>
+            <url-pattern>/Delete</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>Music</realm-name>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login-error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
     <session-config>
         <session-timeout>
             30
