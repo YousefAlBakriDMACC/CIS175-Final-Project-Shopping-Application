@@ -27,12 +27,11 @@
         <servlet-name>Delete</servlet-name>
         <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
-     <security-constraint>
+    
+    <security-constraint>
         <web-resource-collection>
             <web-resource-name>RetrictedMusic</web-resource-name>
-            <url-pattern>/Product</url-pattern>
-            <url-pattern>/Add</url-pattern>
-            <url-pattern>/Delete</url-pattern>
+            <url-pattern>/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>user</role-name>

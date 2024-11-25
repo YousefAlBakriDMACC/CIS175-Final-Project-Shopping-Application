@@ -8,4 +8,9 @@
         logAbandoned="true" removeAbandoned="true"
         removeAbandonedTimeout="60" type="javax.sql.DataSource" 
     />
+    <Realm className="org.apache.catalina.realm.DataSourceRealm" debug="99"
+            dataSourceName="jdbc/music_store" localDataSource="true"
+            userTable="credentials" userNameCol="username" userCredCol="password"
+            userRoleTable="credentials" roleNameCol="rolename"
+    />
 </Context>
