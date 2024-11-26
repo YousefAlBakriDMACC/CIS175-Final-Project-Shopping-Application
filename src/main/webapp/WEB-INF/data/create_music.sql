@@ -75,6 +75,17 @@ CREATE TABLE IF NOT EXISTS Credentials (
   
     PRIMARY KEY (adminID)
 );
+
+INSERT INTO Credentials
+    SELECT * FROM (
+        VALUES
+        ROW('1', 'Yousef Al-Bakri', 'sesame', 'programmer'),
+        ROW('2', 'Laura Thornburg', 'sesame', 'programmer'),
+        ROW('3', 'Kaleb Dermody', 'sesame', 'programmer'),
+        ROW('4', 'Brody Boell', 'sesame', 'programmer'),
+        ROW('5', 'Support', 'password', 'customer_service')
+    ) AS defaults
+    WHERE NOT EXISTS (SELECT NULL FROM Credentials);
   
 -- Create music_user and grant privileges
 

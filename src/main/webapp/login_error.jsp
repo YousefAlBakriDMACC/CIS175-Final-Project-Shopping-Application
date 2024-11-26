@@ -12,8 +12,11 @@
         <title>Login Error</title>
     </head>
     <body>
-               <h2>Login Failed</h2>
+        <h2>Login Failed</h2>
         <p>Invalid username or password. Please try again.</p>
-        <a href="login.jsp">Back to Login</a>
+        <form method="post" action="index.jsp">
+            <input type="hidden" name="flagRedirect" value="true">
+            <input type="submit" value="Back to Login">
+        </form>
     </body>
 </html>
