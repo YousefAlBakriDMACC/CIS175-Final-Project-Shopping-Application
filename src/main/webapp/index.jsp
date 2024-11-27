@@ -10,10 +10,12 @@
 
 <%@ include file="includes/header.jsp" %>
 
-<h2>Product Maintenance</h2>
+<c:if test="${param.flagRedirect != null}">
+    <c:redirect url="products.jsp"/>
+</c:if>
+
+<h3>Product Maintenance</h3>
 <a href="products.jsp">View Products</a>
 <br/>
 
 <%@ include file="includes/footer.jsp" %> 
-
-

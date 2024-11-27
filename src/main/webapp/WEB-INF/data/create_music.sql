@@ -66,6 +66,26 @@ CREATE TABLE IF NOT EXISTS Download (
     PRIMARY KEY (DownloadID), 
     FOREIGN KEY (UserID) REFERENCES User (UserID)
 );
+
+CREATE TABLE IF NOT EXISTS Credentials (
+    adminID INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(32) NOT NULL,
+    password VARCHAR(32) NOT NULL,
+    rolename VARCHAR(32) NOT NULL,
+  
+    PRIMARY KEY (adminID)
+);
+
+INSERT INTO Credentials
+    SELECT * FROM (
+        VALUES
+        ROW('1', 'Yousef Al-Bakri', 'sesame', 'programmer'),
+        ROW('2', 'Laura Thornburg', 'sesame', 'programmer'),
+        ROW('3', 'Kaleb Dermody', 'sesame', 'programmer'),
+        ROW('4', 'Brody Boell', 'sesame', 'programmer'),
+        ROW('5', 'Support', 'password', 'customer_service')
+    ) AS defaults
+    WHERE NOT EXISTS (SELECT NULL FROM Credentials);
   
 -- Create music_user and grant privileges
 
