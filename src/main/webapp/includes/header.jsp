@@ -15,9 +15,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Product Maintenance</title>
+        <title>SoundVault Music</title>
         <link rel="stylesheet" href="includes/styleMain.css">
         <script src="includes/ScriptUtilities.js"></script>
     </head>
 <body>
-<h1>CIS 175 Final Project</h1>
+<h1>SoundVault Music Store</h1>

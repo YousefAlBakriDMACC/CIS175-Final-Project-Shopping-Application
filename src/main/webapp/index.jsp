@@ -10,7 +10,7 @@
 
 <%@ include file="includes/header.jsp" %>
 
-<h3>Product Maintenance</h3>
+<h2>Product Maintenance</h2>
 <a href="products.jsp">View Products</a>
 <br/>
 
