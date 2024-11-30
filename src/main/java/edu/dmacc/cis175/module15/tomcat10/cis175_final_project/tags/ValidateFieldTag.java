@@ -31,7 +31,7 @@ public class ValidateFieldTag extends BodyTagSupport {
                 }
             }
             
-            if (value.equals("")) {
+            if (value.equals("") || value.equals("$0.00") || (value.matches("[-+]?[0-9]*\\.?[0-9]+") && Double.parseDouble(value) == 0)) {
                 pageContext.getOut().print("*");
             }
         } catch (IOException e) {

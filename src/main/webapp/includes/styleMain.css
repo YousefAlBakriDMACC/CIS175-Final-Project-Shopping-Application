@@ -3,31 +3,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 
-#products {
+table {
     border-collapse: collapse;
     width: 100%;
 }
 
-#products, #products th, #products td {
+table, table th, table td {
     border: 1px solid black;
     padding: 10px;
     text-align: left;
     white-space: nowrap;
+    font-size: 16px;
 }
 
-#products td:nth-child(3), #products th:nth-child(3) {
+table td:nth-child(3), table th:nth-child(3) {
     text-align: right;
 }
 
-#products tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-#products tr:hover {
+table tr:hover {
     background-color: #ddd;
 }
 
-#products form {
+table form {
     display: flex;
     justify-content: center;
 }
@@ -93,4 +94,8 @@ h4 {
     text-align: center;
     color: navy;
     font-size: 20px;
+}
+
+label {
+    font-size: 18px;
 }

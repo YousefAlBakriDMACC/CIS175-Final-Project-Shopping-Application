@@ -14,6 +14,8 @@ import java.io.FileReader;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
+import java.io.BufferedReader;
+import java.sql.Statement;
 import org.apache.ibatis.jdbc.ScriptRunner;
 
 /**
@@ -171,7 +173,23 @@ public class ProductDB {
     
     //JDBC
     public static void initJDBC(String filepath) {
-        try (Connection conn = getConnection();) {
+        try (Connection conn = getConnection(); Statement s = conn.createStatement();) {
+            BufferedReader scriptReader = new BufferedReader(new FileReader(filepath));
+            StringBuilder queryBuilder = new StringBuilder();
+            String line;
+            while ((line = scriptReader.readLine()) != null) {
+                if (line.trim().startsWith("-- ")) {
+                    continue;
+                }
+                queryBuilder.append(line).append(' ');  //Append line
+                if (line.trim().endsWith(";")) {
+                    //Execute and end query
+                    s.execute(queryBuilder.toString().trim());
+                    //Empty queryBuilder for next query
+                    queryBuilder = new StringBuilder();
+                }
+            }
+            
             ScriptRunner scriptRunner = new ScriptRunner(conn);
             scriptRunner.setSendFullScript(true);
             scriptRunner.setStopOnError(true);

@@ -28,9 +28,8 @@
     <utils:validate value="${param.price}" /><br><br>
 
     <input type="button" onclick="validateForm(this)" value="Update Product" />
+    <button type="button" onclick="window.location.href='products.jsp'">View Products</button>
 </form>
-
-<button type="button" onclick="window.location.href='products.jsp'">View Product</button>
 
 <%@ include file="includes/footer.jsp" %> 
 

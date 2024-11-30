@@ -32,18 +32,36 @@ public class Add extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             response.setContentType("text/html;charset=UTF-8");
-        //Retrieve product data from form
-        String code = request.getParameter("code");
-        String description = request.getParameter("description");
-        double price = Double.parseDouble(request.getParameter("price"));
+            
+        if (request.getParameter("save").equals("Save Product")) {
+            //Retrieve product data from form
+            String code = request.getParameter("code");
+            String description = request.getParameter("description");
+            double price = Double.parseDouble(request.getParameter("price").replace('$', '0'));
 
-        //Add new product to file
-        Product product = new Product();
-        product.setCode(code);
-        product.setDescription(description);
-        product.setPrice(price);
-        ProductDB.insertProduct(product);
+            //Add new product to file
+            Product product = new Product();
+            product.setCode(code);
+            product.setDescription(description);
+            product.setPrice(price);
+            ProductDB.insertProduct(product);
+            request.getSession().removeAttribute("storedProductAdd");
+        }
+        if (request.getParameter("save").equals("View Products")) {
+            //Persist current data
+            String code = (request.getParameter("code") != null)? request.getParameter("code") : "";
+            String description = (request.getParameter("description") != null)? request.getParameter("description") : "";
+            double price = (request.getParameter("price") != null)? Double.parseDouble(request.getParameter("price").replace('$', '0')) : 0.00;
 
+            //Add new product to file
+            Product product = new Product();
+            product.setCode(code);
+            product.setDescription(description);
+            product.setPrice(price);
+            request.getSession().setAttribute("storedProductAdd", product);
+        }
+        
+        
         //Return to main
         String url = "/products.jsp";
         request.getServletContext().getRequestDispatcher(url).forward(request, response);
