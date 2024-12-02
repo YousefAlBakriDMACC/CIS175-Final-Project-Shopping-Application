@@ -10,24 +10,21 @@
 <h2>Product Details</h2>
 
 <form action="Add" method="post">
-    <input type="hidden" name="productId" value="<c:out value='${product.productID}'/>" />
-
     <label for="code">Code:</label>
-    <input type="text" id="code" name="code" value="<c:out value='${product.code}'/>" required />
-    <utils:validate value="${product.code}" /><br><br>
+    <input type="text" id="code" name="code" value="<c:out value='${sessionScope.storedProductAdd.code}'/>" />
+    <utils:validate value="${sessionScope.storedProductAdd.code}" /><br><br>
 
     <label for="description">Description:</label>
-    <input type="text" id="description" name="description" value="<c:out value='${product.description}'/>" required />
-    <utils:validate value="${product.description}" /><br><br>
+    <input type="text" id="description" name="description" value="<c:out value='${sessionScope.storedProductAdd.description}'/>" />
+    <utils:validate value="${sessionScope.storedProductAdd.description}" /><br><br>
 
     <label for="price">Price:</label>
-    <input type="text" id="price" name="price" value="<c:out value='${product.price}'/>" required />
-    <utils:validate value="${product.price}" /><br><br>
+    <input type="text" id="price" name="price" value="<c:out value='${sessionScope.storedProductAdd.getPriceCurrencyFormat()}'/>" />
+    <utils:validate value="${sessionScope.storedProductAdd.getPriceCurrencyFormat()}" /><br><br>
 
-    <input type="button" onclick="validateForm(this)" value="Save Product" />
+    <input type="submit" onclick="validateForm(this)" value="Save Product" name="save" />
+    <input type="submit" value="View Products" name="save" />
 </form>
-
-<button type="button" onclick="window.location.href='products.jsp'">View Products</button>
 
 <%@ include file="includes/footer.jsp" %> 
 

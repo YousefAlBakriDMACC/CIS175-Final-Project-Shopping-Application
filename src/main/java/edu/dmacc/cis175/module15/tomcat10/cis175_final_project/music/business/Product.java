@@ -7,14 +7,19 @@ import java.text.NumberFormat;
 
 import java.io.Serializable;
 import java.util.StringTokenizer;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
  
-
+@Entity
 public class Product implements Serializable {
 
  
-
-    private Long productId;   
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int productId;   
 
     private String code;
 
@@ -37,7 +42,7 @@ public class Product implements Serializable {
 
  
 
-    public Long getId() {
+    public int getId() {
 
         return productId;
 
@@ -45,7 +50,7 @@ public class Product implements Serializable {
 
  
 
-    public void setId(Long productId) {
+    public void setId(int productId) {
 
         this.productId = productId;
 

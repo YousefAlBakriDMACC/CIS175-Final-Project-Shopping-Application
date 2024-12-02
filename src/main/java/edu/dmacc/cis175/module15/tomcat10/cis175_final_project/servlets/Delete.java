@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductIO;
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductDB;
 
 /**
  *
@@ -37,7 +37,7 @@ public class Delete extends HttpServlet {
             request.getServletContext().getRequestDispatcher(url).forward(request, response);
         } else {
             //Delete selected product and return
-            ProductIO.deleteProduct((Product)(request.getSession().getAttribute("product")));
+            ProductDB.deleteProduct((Product)(request.getSession().getAttribute("product")));
             request.getSession().removeAttribute("product");
             String url = "/products.jsp";
             request.getServletContext().getRequestDispatcher(url).forward(request, response);

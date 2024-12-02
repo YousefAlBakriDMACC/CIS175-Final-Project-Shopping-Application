@@ -18,7 +18,7 @@
         <td><c:out value='${product.description}'/></td>
         <td><c:out value='${product.price}'/></td>
     </tr>
-</table>
+</table><br>
 
 <form action="Delete" method="post">
     <input type="hidden" name="confirmDelete" value="true">

@@ -16,7 +16,7 @@
         <th></th>
         <th></th>
     </tr>
-    <c:forEach var="product" items="${ProductIO.selectProducts()}">
+    <c:forEach var="product" items="${ProductDB.selectProducts()}">
         <tr>
             <td><c:out value='${product.code}'/></td>
             <td style="border-right: none;"><c:out value='${product.description}'/></td>
@@ -33,12 +33,12 @@
                 <form method="post" action="Delete">
                     <input type="hidden" id="deleteProduct" name="product" value="<c:out value='${product.toString()}'/>"/>
                     <input type="hidden" id="confirmDelete" name="confirmDelete" value="false"/> 
-                   <input type="submit" value="Delete"/>
+                    <input type="submit" value="Delete"/>
                 </form>
             </td>
         </tr>
     </c:forEach>
-</table>
+</table><br/>
 
 <button type="button" onclick="window.location.href='add.jsp'">Add Product</button>
 

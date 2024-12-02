@@ -32,6 +32,9 @@ function validateForm(context) {
             //Validate numeric
             if (element.getAttribute("name") === "price") {
                 let price = element.value;
+                if (price.startsWith("$")) {
+                    price = price.substring(1);
+                }
                 if (parseFloat(price) != price) {
                     alert("Price must be numeric.");
                     flagValid = false;
@@ -65,6 +68,6 @@ function validateForm(context) {
     if (flagValid) {
         formToValidate.submit();
     } else {
-        return;
+        window.event.preventDefault();
     }
 }

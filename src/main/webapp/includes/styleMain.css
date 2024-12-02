@@ -3,82 +3,99 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 
-#products {
+table {
     border-collapse: collapse;
     width: 100%;
 }
 
-#products, #products th, #products td {
+table, table th, table td {
     border: 1px solid black;
     padding: 10px;
     text-align: left;
+    white-space: nowrap;
+    font-size: 16px;
 }
 
-#products td:nth-child(3), #products th:nth-child(3) {
+table td:nth-child(3), table th:nth-child(3) {
     text-align: right;
 }
 
-#products tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-#products tr:hover {
+table tr:hover {
     background-color: #ddd;
 }
 
-#products form {
+table form {
     display: flex;
     justify-content: center;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: lightgoldenrodyellow;
+    background-color: #acacac;
 }
 
 h1 {
-    padding: 8px;
+    padding: 60px;
     text-align: center;
-    color: navy;
-    background-color: lightblue;
-    border: solid navy 2px;
-    font-size: 24px;
+    color: #ff4500;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border: solid navy 10px;
+    font-size: 60px;
+    background-image: url('AdobeStock_826471148.jpeg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
+
 
 h2 {
     color: navy;
     text-align: center;
+    font-size: 32px;
 }
 
 h3 {
     color: navy;
     text-align: left;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 p {
-    font-size: 14px;
+    font-size: 16px;
     text-align: Left;
     color: navy;
 }
 
 a:link {
-    font-size: 18px;
+    font-size: 20px;
     color: navy;
 }
 
 a:visited {
-    font-size: 18px;
+    font-size: 20px;
     color: blue;
 }
 
 a:hover {
-    font-size: 18px;
-    color: gray;
+    font-size: 20px;
+    color: black;
 }
 
 
 h4 {
     text-align: center;
     color: navy;
+    font-size: 20px;
+}
+
+label {
+    font-size: 18px;
 }

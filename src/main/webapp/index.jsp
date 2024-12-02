@@ -6,14 +6,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="utils" uri="/WEB-INF/tld/utils.tld"%>
-<utils:init path="/WEB-INF/data/products.txt"/>
+<utils:init path="/WEB-INF/data/create_music.sql"/>
 
 <%@ include file="includes/header.jsp" %>
 
-<h3>Product Maintenance</h3>
+<c:if test="${param.flagRedirect != null}">
+    <c:redirect url="products.jsp"/>
+</c:if>
+
+<h2>Product Maintenance</h2>
 <a href="products.jsp">View Products</a>
 <br/>
 
 <%@ include file="includes/footer.jsp" %> 
-
-
