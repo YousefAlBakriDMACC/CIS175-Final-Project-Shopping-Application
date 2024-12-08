@@ -9,17 +9,22 @@
 
 <h2>Login</h2>
 <form action="j_security_check" method="post">
-    <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="j_username" required>
-    </div>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="j_password" required>
-    </div>
-    <div class="form-group">
-        <button type="submit">Login</button>
-    </div>
+    <table style="width: 15%">
+        <tr>
+            <td>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="j_username" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="j_password" required>
+            </td>
+        </tr>
+    </table><br>
+    <button type="submit">Login</button>
+    <button type="button" onclick="window.location.href='user.jsp'">Create Account</button>
 </form>
 
 <%@ include file="includes/footer.jsp" %> 

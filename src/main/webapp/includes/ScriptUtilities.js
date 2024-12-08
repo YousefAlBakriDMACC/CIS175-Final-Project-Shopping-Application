@@ -4,20 +4,19 @@
  */
 
 function validateForm(context) {
-    let maximumAllowedPrice = 99.99;
+    let maximumAllowedPrice = 99999.99;
 
     let flagValid = true;
-    let formToValidate = undefined;
     for (const form of Array.prototype.slice.call(document.forms)) {
         if (form.contains(context)) {
-            formToValidate = form;
+            var formToValidate = form;
             break;
         }
     }
 
     if (formToValidate) {
         Array.prototype.slice.call(formToValidate.elements).filter(element => {
-            return element.hasAttribute("type") && element.getAttribute("type") === "text";
+            return element.hasAttribute("type") && (element.getAttribute("type") === "text" || element.getAttribute("type") === "password");
         }).forEach(element => {
             //Validate existent
             if (!element.value && parseInt(element.value) !== 0) {
@@ -29,36 +28,48 @@ function validateForm(context) {
                 element.nextSibling.textContent = "";
             }
 
-            //Validate numeric
             if (element.getAttribute("name") === "price") {
-                let price = element.value;
-                if (price.startsWith("$")) {
-                    price = price.substring(1);
-                }
-                if (parseFloat(price) != price) {
-                    alert("Price must be numeric.");
-                    flagValid = false;
-                    return;
-                }
-                
-                if (parseFloat(price).toFixed(2) !== price) {
-                    alert("Price is constrained to currency precision (0.01).");
+                //Validate numeric
+                if (!element.value.match(new RegExp('^\\$?\\d+\\.?\\d{0,2}$'))) {
+                    alert("Price must be a currency-formatted number greater than 0.");
                     flagValid = false;
                     return;
                 }
 
-                if (parseFloat(price) <= 0) {
-                    alert("Price must be greater than 0.");
+                if (parseFloat(element.value) > maximumAllowedPrice) {
+                    alert("Price is constrained to $" + maximumAllowedPrice + " and below.");
                     flagValid = false;
                     return;
                 }
-
-                if (parseFloat(price) > maximumAllowedPrice) {
-                    alert("Price is constrained to " + maximumAllowedPrice + ".");
+            } else if (element.getAttribute("name") === "description") {
+                //Validate length
+                if (element.value.length > 100) {
+                    alert("Product descriptions are constrained to 100 characters or less.");
                     flagValid = false;
                     return;
                 }
-            }
+            } else if (element.getAttribute("name") === "code") {
+                //Validate length
+                if (element.value.length > 10) {
+                    alert("Product codes are constrained to 10 characters or less.");
+                    flagValid = false;
+                    return;
+                }
+            } else if (element.getAttribute("name") === "username") {
+                //Validate length
+                if (element.value.length > 32) {
+                    alert("Usernames are constrained to 32 characters or less.");
+                    flagValid = false;
+                    return;
+                }
+            } else if (element.getAttribute("name") === "password") {
+                //Validate length
+                if (element.value.length > 32) {
+                    alert("Passwords are constrained to 32 characters or less.");
+                    flagValid = false;
+                    return;
+                }
+            } 
         });
     } else {
         flagValid = false;

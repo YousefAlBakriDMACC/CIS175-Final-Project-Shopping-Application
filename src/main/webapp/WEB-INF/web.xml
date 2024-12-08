@@ -15,6 +15,10 @@
         <servlet-name>Delete</servlet-name>
         <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.Delete</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>User</servlet-name>
+        <servlet-class>edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets.User</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Product</servlet-name>
         <url-pattern>/Product</url-pattern>
@@ -26,6 +30,10 @@
     <servlet-mapping>
         <servlet-name>Delete</servlet-name>
         <url-pattern>/Delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>User</servlet-name>
+        <url-pattern>/User</url-pattern>
     </servlet-mapping>
     <security-role>
         <role-name>programmer</role-name>

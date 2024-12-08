@@ -27,18 +27,16 @@ public class Edit extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Get product data from form
+        int id = Integer.parseInt(request.getParameter("id"));
         String code = request.getParameter("code");
         String description = request.getParameter("description");
-        double price = Double.parseDouble(request.getParameter("price"));
+        double price = Double.parseDouble(request.getParameter("price").replace('$', '0'));
         
-        //Updates the product with the provided code
-        //FIXME: Requires the product code to remain static
-        //while presenting it as an updatable option
+        //Updates the product with the provided id
         Product updateProduct = new Product();
+        updateProduct.setId(id);
         updateProduct.setCode(code);
         updateProduct.setDescription(description);
         updateProduct.setPrice(price);
@@ -46,6 +44,7 @@ public class Edit extends HttpServlet {
         
         //Return to main
         String url = "/products.jsp";
+        response.setContentType("text/html;charset=UTF-8");
         request.getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 
