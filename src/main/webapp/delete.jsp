@@ -14,18 +14,23 @@
         <th>Price</th>
     </tr>
     <tr>
-        <td><c:out value='${product.code}'/></td>
-        <td><c:out value='${product.description}'/></td>
-        <td><c:out value='${product.price}'/></td>
+        <td><c:out value='${param.code}'/></td>
+        <td><c:out value='${param.description}'/></td>
+        <td><c:out value='${param.price}'/></td>
     </tr>
 </table><br>
 
 <form action="Delete" method="post">
-    <input type="hidden" name="confirmDelete" value="true">
+    <input type="hidden" name="id" value="<c:out value='${param.id}' />"/>
+    <input type="hidden" name="code" value="<c:out value='${param.code}'/>"/>
+    <input type="hidden" name="description" value="<c:out value='${param.description}'/>"/>
+    <input type="hidden" name="price" value="<c:out value='${param.price}'/>"/>
     
-    <label for ="confirm">Are you sure you want to delete this product?</label>
+    <label>
+        <span>Are you sure you want to delete this product?</span>
         <button type="submit" id ="confirm">Yes</button>
         <button type="button" onclick="window.location.href='products.jsp'">No</button> 
+    </label>
 </form>
 
 <%@ include file="includes/footer.jsp" %> 

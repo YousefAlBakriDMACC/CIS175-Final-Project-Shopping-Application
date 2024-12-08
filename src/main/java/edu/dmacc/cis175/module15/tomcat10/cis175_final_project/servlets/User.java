@@ -4,21 +4,18 @@
  */
 package edu.dmacc.cis175.module15.tomcat10.cis175_final_project.servlets;
 
+import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.UserDB;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.business.Product;
-import edu.dmacc.cis175.module15.tomcat10.cis175_final_project.music.data.ProductDB;
 
 /**
  *
  * @author josep
  */
-@WebServlet(name = "Add", urlPatterns = {"/Add"})
-public class Add extends HttpServlet {
+public class User extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,37 +27,24 @@ public class Add extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getParameter("action").equals("Save Product")) {
-            //Retrieve product data from form
-            String code = request.getParameter("code");
-            String description = request.getParameter("description");
-            double price = Double.parseDouble(request.getParameter("price").replace('$', '0'));
-
-            //Add new product to database
-            Product product = new Product();
-            product.setCode(code);
-            product.setDescription(description);
-            product.setPrice(price);
-            ProductDB.insertProduct(product);
-            request.getSession().removeAttribute("storedProductAdd");
+        //Get user data from form
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String rolename = request.getParameter("rolename");
+        
+        //Process action
+        if (request.getParameter("action").equals("Create Account")) {
+            UserDB.addUser(username, password, rolename);
         }
         
-        if (request.getParameter("action").equals("View Products")) {
-            //Retrieve product data from form
-            String code = (request.getParameter("code") != null)? request.getParameter("code") : "";
-            String description = (request.getParameter("description") != null)? request.getParameter("description") : "";
-            String price = (request.getParameter("price") != null)? request.getParameter("price") : "";
-            
-            //Persist current data
-            java.util.HashMap<String, String> product = new java.util.HashMap<>();
-            product.put("code", code);
-            product.put("description", description);
-            product.put("price", price);
-            request.getSession().setAttribute("storedProductAdd", product);
+        if (request.getParameter("action").equals("Delete Account")) {
+            UserDB.deleteUser(username, password, rolename);
         }
         
-        //Return to main
-        String url = "/products.jsp";
+        //Return to login
+        request.setAttribute("flagRedirect", "true");
+        
+        String url = "/index.jsp";
         response.setContentType("text/html;charset=UTF-8");
         request.getServletContext().getRequestDispatcher(url).forward(request, response);
     }

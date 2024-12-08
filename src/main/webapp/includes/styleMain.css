@@ -99,3 +99,7 @@ h4 {
 label {
     font-size: 18px;
 }
+
+select {
+    float: right;
+}

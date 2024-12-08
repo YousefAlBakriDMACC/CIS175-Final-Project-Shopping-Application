@@ -256,11 +256,12 @@ public class ProductDB {
     }
 
     public static void updateProductJDBC(Product product) {
-        String query = "UPDATE Product SET ProductDescription = ?, ProductPrice = ? WHERE ProductCode = ?";
+        String query = "UPDATE Product SET ProductCode = ?, ProductDescription = ?, ProductPrice = ? WHERE ProductID = ?";
         try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
-            ps.setString(1, product.getDescription());
-            ps.setDouble(2, product.getPrice());
-            ps.setString(3, product.getCode());
+            ps.setString(1, product.getCode());
+            ps.setString(2, product.getDescription());
+            ps.setDouble(3, product.getPrice());
+            ps.setInt(4, product.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Database error: " + e);
@@ -268,9 +269,9 @@ public class ProductDB {
     }
 
     public static void deleteProductJDBC(Product product) {
-        String query = "DELETE FROM Product WHERE ProductCode = ?";
+        String query = "DELETE FROM Product WHERE ProductId = ?";
         try (Connection conn = getConnection(); PreparedStatement ps = conn.prepareStatement(query)) {
-            ps.setString(1, product.getCode());
+            ps.setInt(1, product.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Database error: " + e);
